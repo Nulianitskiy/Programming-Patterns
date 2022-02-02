@@ -1,1 +1,6 @@
 puts "Hello world" # Hhhhheeeeeeeeeeeeeeeeeeelllooooooooooooooooooooooooooo wo!
+
+puts "Okeeeyy, let`s go! "
+puts "Enter u name: "
+u_name = gets
+puts "Hi, #{u_name}"
