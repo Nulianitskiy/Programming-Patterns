@@ -57,9 +57,15 @@ def mult_of_dig(number)
     end
     y
 end
-x = mindigit(1551)
-y = maxdigit(16761)
-z = mult_of_dig(12345)
-puts x
-puts y
-puts z
+
+def del_n3(number)
+    x = 0
+    (1 ... number).each do |i|
+        if number % i == 0 && i % 3 != 0
+            x += 1
+        end
+    end
+    x
+end
+
+puts del_n3(15)
