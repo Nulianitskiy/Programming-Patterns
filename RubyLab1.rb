@@ -42,5 +42,24 @@ def sum_of_dig(number)
     number.digits.sum
 end
 
-x = sum_of_dig(1551)
+def mindigit(number)
+    number.digits.min
+end
+
+def maxdigit(number)
+    number.digits.max
+end
+
+def mult_of_dig(number)
+    y = 1
+    number.digits.each do |x|
+        y *= x
+    end
+    y
+end
+x = mindigit(1551)
+y = maxdigit(16761)
+z = mult_of_dig(12345)
 puts x
+puts y
+puts z
