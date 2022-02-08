@@ -68,4 +68,13 @@ def del_n3(number)
     x
 end
 
-puts del_n3(15)
+def min_no_even(number)
+    number.digits.sort.each do |i|
+        unless i.even?
+            return i
+        end
+    end
+    0
+end
+puts min_no_even(2222)
+puts min_no_even(2345)
