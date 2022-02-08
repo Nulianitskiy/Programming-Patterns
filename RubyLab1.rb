@@ -76,5 +76,16 @@ def min_no_even(number)
     end
     0
 end
-puts min_no_even(2222)
-puts min_no_even(2345)
+
+def jopa(number)
+    sum = sum_of_dig(number)
+    mult = mult_of_dig(number)
+    x = 0
+    (1 ... number).each do |i|
+        if number % i == 0 && i.gcd(sum) != 1 && i.gcd(mult) == 1
+            x += i
+        end
+    end
+    x
+end
+puts jopa(15)
