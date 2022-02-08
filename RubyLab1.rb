@@ -159,8 +159,51 @@ def mult_in_arr(arr)
     x
 end
 
-a = [1, 2, 3, 4, 5, 4, 3, 2, 1]
-puts sum_in_arr(a)
-puts min_in_arr(a)
-puts max_in_arr(a)
-puts mult_in_arr(a)
+#a = [1, 2, 3, 4, 5, 4, 3, 2, 1]
+#puts sum_in_arr(a)
+#puts min_in_arr(a)
+#puts max_in_arr(a)
+#puts mult_in_arr(a)
+
+def chose_your_destiny
+    puts "Че делаем?
+    1) Сумма
+    2) Минимум
+    3) Максимум
+    4) Произведение"
+    my_method = gets.chomp
+
+    puts "Откуда массив берем?
+    1) Клавиатура
+    2) Файл"
+    my_option = gets.chomp
+
+    my_arr = Array.new
+
+    case my_option
+    when "1"
+        my_arr = gets.chomp.split.map(&:to_i)
+    when "2"
+        puts "Так, ну мне нужен ещё адрес файла" 
+        my_address = gets.chomp
+        my_str = IO.read(my_address) # C:\Users\Captain\Ruby\text.txt
+        my_arr = my_str.split.map(&:to_i)
+    else
+        puts "Ошибка в выборе массива"
+    end
+
+    case my_method
+    when "1"
+        puts sum_in_arr(my_arr)
+    when "2"
+        puts min_in_arr(my_arr)
+    when "3"
+        puts max_in_arr(my_arr)
+    when "4"
+        puts mult_in_arr(my_arr)
+    else
+        puts "Ошибка в выборе метода"
+    end
+end
+
+chose_your_destiny
