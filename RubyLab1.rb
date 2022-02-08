@@ -89,34 +89,78 @@ def jopa(number)
     x
 end
 
-puts "Who you gonna call?
-1) Сумма цифр числа
-2) Минимальная цифра числа
-3) Максимальная цифра числа
-4) Произведение цифр числа
-5) Количество делителей числа, не делящихся на 3
-6) Минимальная нечетную цифру числа
-7) Сумма всех делителей числа, взаимно простых с суммой цифр числа и не взаимно простых с произведением цифр числа"
+def digit
+    puts "Who you gonna call?
+    1) Сумма цифр числа
+    2) Минимальная цифра числа
+    3) Максимальная цифра числа
+    4) Произведение цифр числа
+    5) Количество делителей числа, не делящихся на 3
+    6) Минимальная нечетную цифру числа
+    7) Сумма всех делителей числа, взаимно простых с суммой цифр числа и не взаимно простых с произведением цифр числа"
 
-my_chose = gets.chomp
-puts "Число?"
-my_number = gets.to_i
+    my_chose = gets.chomp
+    puts "Число?"
+    my_number = gets.to_i
 
-case my_chose
-when "1"
-    puts sum_of_dig(my_number)
-when "2"
-    puts mindigit(my_number)
-when "3"
-    puts maxdigit(my_number)
-when "4"
-    puts mult_of_dig(my_number)
-when "5"
-    puts del_n3(my_number)
-when "6"
-    puts min_no_even(my_number)
-when "7"
-    puts jopa(my_number)
-else
-     puts "Ghostbusters!"
+    case my_chose
+    when "1"
+        puts sum_of_dig(my_number)
+    when "2"
+        puts mindigit(my_number)
+    when "3"
+        puts maxdigit(my_number)
+    when "4"
+        puts mult_of_dig(my_number)
+    when "5"
+        puts del_n3(my_number)
+    when "6"
+        puts min_no_even(my_number)
+    when "7"
+        puts jopa(my_number)
+    else
+        puts "Ghostbusters!"
+    end
 end
+
+def sum_in_arr(arr)
+    x = 0
+    for i in arr do
+        x += i
+    end
+    x
+end
+
+def min_in_arr(arr)
+    x = arr[0]
+    for i in arr do
+        if x > i
+            x = i
+        end
+    end
+    x
+end
+
+def max_in_arr(arr)
+    x = arr[0]
+    for i in arr do
+        if x < i
+            x = i
+        end
+    end
+    x
+end
+
+def mult_in_arr(arr)
+    x = 1
+    for i in arr do
+        x *= i
+    end
+    x
+end
+
+a = [1, 2, 3, 4, 5, 4, 3, 2, 1]
+puts sum_in_arr(a)
+puts min_in_arr(a)
+puts max_in_arr(a)
+puts mult_in_arr(a)
