@@ -243,4 +243,10 @@ def swap_min_max
     arr
 end
 
-puts swap_min_max
+def if_max_in_interval(a,b)
+    arr = get_arr
+    subarr = arr[a..b]
+    subarr.include?(arr.max)
+end
+
+puts if_max_in_interval(2, 5)
