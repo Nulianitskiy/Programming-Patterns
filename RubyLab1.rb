@@ -260,4 +260,30 @@ def more_av_less_max
     arr = arr.select{|i| i > arr.sum/arr.length && i < arr.max}
 end
 
-puts more_av_less_max
+def chose_b4
+
+    puts "Че выбираем?
+    1) Определить является ли элемент по указанному индексу глобальным минимумом.
+    2) Поменять местами минимальный и максимальный элементы массива.
+    3) Проверить наличие максимального элемента массива в этом интервале.
+    4) Найти среднее арифметическое модулей элементов массива.
+    5) Построить новый с элементами, большими, чем среднее арифметическое списка, но меньшими, чем его максимальное значение."
+    my_method = gets.chomp
+
+    case my_method
+    when "1"
+        puts if_glob_min
+    when "2"
+        puts swap_min_max
+    when "3"
+        puts "Дай 2 цифры"
+        puts if_max_in_interval(gets.to_i, gets.to_i)
+    when "4"
+        puts av_of_mod
+    when "5"
+        puts more_av_less_max
+    else
+        puts "Ошибка в выборе метода"
+    end
+end
+chose_b4
