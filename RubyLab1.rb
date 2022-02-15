@@ -3,11 +3,10 @@ def hello
 
     puts "Okeeeyy, let's go! "
     puts "Enter u name: "
-    u_name = gets
-    puts "Hi, #{u_name}"
+    puts "Hi, #{ARGV[0]}"
 
     puts "So, what's u favourite computer language?"
-    my_lang = gets.downcase.chomp
+    my_lang = STDIN.gets.downcase.chomp
     #if my_lang == "ruby"
     #    puts "You pathetic..."    
     #else
@@ -26,13 +25,13 @@ def hello
     end
 
     puts "Ok, a u wanna execute ruby or OC command?"
-    my_chose = gets.chomp
+    my_chose = STDIN.gets.chomp
 
     case my_chose
     when "ruby"
-        system "#{gets.chomp}"
+        puts system "#{STDIN.gets.chomp}"
     when "OC"
-        system "#{gets.chomp}"
+        puts system "#{STDIN.gets.chomp}"
     else
         puts "I don't understand you"
     end
@@ -99,9 +98,9 @@ def digit
     6) Минимальная нечетную цифру числа
     7) Сумма всех делителей числа, взаимно простых с суммой цифр числа и не взаимно простых с произведением цифр числа"
 
-    my_chose = gets.chomp
+    my_chose = ARGV[0]
     puts "Число?"
-    my_number = gets.to_i
+    my_number = ARGV[1].to_i
 
     case my_chose
     when "1"
@@ -206,4 +205,32 @@ def chose_your_destiny
     end
 end
 
-chose_your_destiny
+def get_arr
+
+    puts "Откуда массив берем?
+    1) Клавиатура
+    2) Файл"
+    my_option = STDIN.gets.chomp
+
+    my_arr = Array.new
+
+    case my_option
+    when "1"
+        my_arr = gets.chomp.split.map(&:to_i)
+    when "2"
+        puts "Так, ну мне нужен ещё адрес файла" 
+        my_address = gets.chomp
+        my_str = IO.read(my_address) # C:\Users\Captain\Ruby\text.txt
+        my_arr = my_str.split.map(&:to_i)
+    else
+        puts "Ошибка в выборе массива"
+    end
+    my_arr
+end
+
+def if_glob_min
+    arr = get_arr
+    arr[gets.to_i] == arr.min
+end
+
+puts if_glob_min
