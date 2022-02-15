@@ -286,4 +286,9 @@ def chose_b4
         puts "Ошибка в выборе метода"
     end
 end
-chose_b4
+
+def shuffle_string(text)
+    text.split("").shuffle.join
+end
+
+puts shuffle_string("Hello world")
