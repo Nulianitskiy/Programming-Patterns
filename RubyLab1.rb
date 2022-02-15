@@ -294,4 +294,9 @@ end
 def is_palindrome(text)
     text.match?(text.reverse)
 end
-puts is_palindrome("lopol")
+
+def sort_by_lenght(text)
+    text.split(" ").sort_by(&:length).join(" ")
+end
+
+puts sort_by_lenght("prosto probniy text dlya proverki")
