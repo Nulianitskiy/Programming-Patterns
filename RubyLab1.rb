@@ -233,4 +233,14 @@ def if_glob_min
     arr[gets.to_i] == arr.min
 end
 
-puts if_glob_min
+def swap_min_max
+    arr = get_arr
+    imin = arr.min
+    imax = arr.max
+    arr = arr.map{|i| i == imin ? "x" : i}
+    arr = arr.map{|i| i == imax ? imin : i}
+    arr = arr.map{|i| i == "x" ? imax : i}
+    arr
+end
+
+puts swap_min_max
