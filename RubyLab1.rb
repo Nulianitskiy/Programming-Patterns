@@ -291,4 +291,7 @@ def shuffle_string(text)
     text.split("").shuffle.join
 end
 
-puts shuffle_string("Hello world")
+def is_palindrome(text)
+    text.match?(text.reverse)
+end
+puts is_palindrome("lopol")
