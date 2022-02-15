@@ -299,4 +299,35 @@ def sort_by_lenght(text)
     text.split(" ").sort_by(&:length).join(" ")
 end
 
-puts sort_by_lenght("prosto probniy text dlya proverki")
+def chose_b5_1
+    puts "Че выбираем?
+    1) Перемешать все символы строки в случайном порядке.
+    2) Проверить, образуют ли прописные символы этой строки палиндром.
+    3) Упорядочить слова по количеству букв в каждом слове."
+    my_method = gets.chomp
+    puts "Текст: "
+    my_text = gets.chomp
+
+    case my_method
+    when "1"
+        puts shuffle_string(my_text)
+    when "2"
+        puts is_palindrome(my_text)
+    when "3"
+        puts sort_by_lenght(my_text)
+    else
+        puts "Ошибка в выборе метода"
+    end
+end
+
+def true_date(text)
+    text = text.split(" ")
+    months = ["января", "февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"]
+    for i in (0..text.length) do
+        if text[i].to_i > 0 && text[i].to_i <= 31 && months.include?(text[i+1]) && text[i+2].to_i >= 0
+            puts "#{text[i]} #{text[i+1]} #{text[i+2]}"
+        end
+    end
+end
+
+true_date("10 января 2000 10 2 февраля 2222 ")
