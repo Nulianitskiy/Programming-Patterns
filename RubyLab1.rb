@@ -255,4 +255,9 @@ def av_of_mod
     n_arr.sum/n_arr.length
 end
 
-puts av_of_mod
+def more_av_less_max
+    arr = get_arr
+    arr = arr.select{|i| i > arr.sum/arr.length && i < arr.max}
+end
+
+puts more_av_less_max
