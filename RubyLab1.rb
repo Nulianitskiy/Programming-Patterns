@@ -249,4 +249,10 @@ def if_max_in_interval(a,b)
     subarr.include?(arr.max)
 end
 
-puts if_max_in_interval(2, 5)
+def av_of_mod
+    arr = get_arr
+    n_arr = arr.map{|i| i.abs}
+    n_arr.sum/n_arr.length
+end
+
+puts av_of_mod
