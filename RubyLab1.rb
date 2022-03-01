@@ -343,4 +343,8 @@ def kirilliza(text)
     max_kir
 end
 
-puts kirilliza("asььььzzzьььььььz")
+def min_digit_in_str(text)
+    text.split("").min
+end
+
+puts min_digit_in_str("asdfg987234huilo")
