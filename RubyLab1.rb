@@ -228,13 +228,11 @@ def get_arr
     my_arr
 end
 
-def if_glob_min
-    arr = get_arr
+def if_glob_min(arr)
     arr[gets.to_i] == arr.min
 end
 
-def swap_min_max
-    arr = get_arr
+def swap_min_max(arr)
     imin = arr.min
     imax = arr.max
     arr = arr.map{|i| i == imin ? "x" : i}
@@ -243,20 +241,17 @@ def swap_min_max
     arr
 end
 
-def if_max_in_interval(a,b)
-    arr = get_arr
+def if_max_in_interval(a,b, arr)
     subarr = arr[a..b]
     subarr.include?(arr.max)
 end
 
-def av_of_mod
-    arr = get_arr
+def av_of_mod(arr)
     n_arr = arr.map{|i| i.abs}
     n_arr.sum/n_arr.length
 end
 
-def more_av_less_max
-    arr = get_arr
+def more_av_less_max(arr)
     arr = arr.select{|i| i > arr.sum/arr.length && i < arr.max}
 end
 
@@ -270,18 +265,20 @@ def chose_b4
     5) Построить новый с элементами, большими, чем среднее арифметическое списка, но меньшими, чем его максимальное значение."
     my_method = gets.chomp
 
+    my_arr = get_arr
+
     case my_method
     when "1"
-        puts if_glob_min
+        puts if_glob_min(my_arr)
     when "2"
-        puts swap_min_max
+        puts swap_min_max(my_arr)
     when "3"
         puts "Дай 2 цифры"
-        puts if_max_in_interval(gets.to_i, gets.to_i)
+        puts if_max_in_interval(gets.to_i, gets.to_i, my_arr)
     when "4"
-        puts av_of_mod
+        puts av_of_mod(my_arr)
     when "5"
-        puts more_av_less_max
+        puts more_av_less_max(my_arr)
     else
         puts "Ошибка в выборе метода"
     end
@@ -330,4 +327,20 @@ def true_date(text)
     end
 end
 
-true_date("10 января 2000 10 2 февраля 2222 ")
+def kirilliza(text)
+    max_kir = 0
+    cur_kir = 0
+    text.each_char do |c|
+        if c >= 'А' && c <= 'я'
+            cur_kir += 1
+        else
+            if cur_kir > max_kir
+                max_kir = cur_kir
+            end
+            cur_kir = 0
+        end
+    end
+    max_kir
+end
+
+puts kirilliza("asььььzzzьььььььz")
