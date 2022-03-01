@@ -383,3 +383,12 @@ def chose_b5_2
         puts "Ошибка в выборе метода"
     end
 end
+
+my_text = IO.read "C:\\Users\\Captain\\Ruby\\text2.txt"
+
+def sort_text_by_lenght(text)
+    text.split("\n").sort_by(&:length)
+end
+
+puts sort_text_by_lenght(my_text)
+
