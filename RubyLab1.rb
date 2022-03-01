@@ -347,4 +347,20 @@ def min_digit_in_str(text)
     text.split("").min
 end
 
-puts min_digit_in_str("asdfg987234huilo")
+def digits_in_str(text)
+    max_dig = 0
+    cur_dig = 0
+    text.each_char do |c|
+        if c >= '0' && c <= '9'
+            cur_dig += 1
+        else
+            if cur_dig > max_dig
+                max_dig = cur_dig
+            end
+            cur_dig = 0
+        end
+    end
+    max_dig
+end
+
+puts digits_in_str("sdfg1234tyui67890-bnm")
