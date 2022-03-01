@@ -390,5 +390,8 @@ def sort_text_by_lenght(text)
     text.split("\n").sort_by(&:length)
 end
 
-puts sort_text_by_lenght(my_text)
+def sort_text_by_count_of_words(text)
+    text.split("\n").sort_by{|x| x.count(" ")}
+end
 
+puts sort_text_by_count_of_words(my_text)
