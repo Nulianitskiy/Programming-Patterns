@@ -363,4 +363,23 @@ def digits_in_str(text)
     max_dig
 end
 
-puts digits_in_str("sdfg1234tyui67890-bnm")
+def chose_b5_2
+    puts "Че выбираем?
+    1) Найти наибольшее количество идущих подряд символов кириллицы.
+    2) Найти минимальное из имеющихся в ней натуральных чисел.
+    3) Найти наибольшее количество идущих подряд цифр."
+    my_method = gets.chomp
+    puts "Текст: "
+    my_text = gets.chomp
+
+    case my_method
+    when "1"
+        puts kirilliza(my_text)
+    when "2"
+        puts min_digit_in_str(my_text)
+    when "3"
+        puts digits_in_str(my_text)
+    else
+        puts "Ошибка в выборе метода"
+    end
+end
