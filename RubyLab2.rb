@@ -6,9 +6,14 @@ class Department
         @name = name
         @contact_phone = contact_phone
     end
+
+    def show_info
+        puts "This is departnament \"#{@name}\" \nContact phone: #{@contact_phone}"
+    end
 end
 
 dept1 = Department.new("NumberOne", "+01112345678")
+dept2 = Department.new("BoomBigaBoom", "+80189091456")
 
-puts dept1.name
-puts dept1.contact_phone
+dept1.show_info
+dept2.show_info
