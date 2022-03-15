@@ -10,4 +10,4 @@ require "#{current_path}/Department.rb"
 #puts dept1.show_all_dutyes
 #puts dept2.show_all_dutyes
 
-puts read_from_txt("C:\\Users\\Captain\\Ruby\\Department.txt")
+puts read_from_txt("C:\\Users\\Captain\\Ruby\\ruby_dungeon\\Department.txt")
