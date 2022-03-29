@@ -21,7 +21,7 @@ class Department
     end
 
     def to_s
-        "This is departnament \"#{name}\" \nContact phone: #{contact_phone} \n#{show_all_dutyes}\n#{main_duty}"
+        "This is departnament \"#{name}\" \nContact phone: #{contact_phone} \n#{all_dutyes}\n#{main_duty}"
 	end
 
     def add_duty(duty)
@@ -44,29 +44,5 @@ class Department
 
     def main_duty
         @duty_list[@main_duty]
-    end
-end
-
-def read_from_txt(path)
-    my_data = IO.read path
-    dept_list = Array.new
-    sub_data = Array.new
-    n = 0
-    my_data.split("\n").each do |i| 
-        if i != "///"
-            sub_data[n] = i 
-            n+=1
-        else 
-            n = 0
-            dept_list.push(Department.new(sub_data.shift, sub_data.shift, sub_data.shift.split("/")))
-        end
-    end
-    dept_list
-end
-
-def write_to_txt(dept_list, path)
-    file = File.open(path, "w")
-    dept_list.each do |i| 
-        file.print("#{i.name}\n#{i.contact_phone}\n#{i.all_dutyes}\n///\n") 
     end
 end
