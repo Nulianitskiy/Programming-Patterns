@@ -1,55 +1,49 @@
 class Department
 
-    attr_accessor :name, :contact_phone, :main_duty
+    attr_accessor :name
+    attr_reader :contact_phone
+    
+    def contact_phone=(my_phone)
+        if my_phone.match?(/[+][7][0-9]{10}/)
+            @contact_phone = my_phone
+        else
+            raise "Wrong Number!"
+        end
+    end
 
     @duty_list = Array.new
 
     def initialize(name, contact_phone, duty_list = nil)
         self.name = name
-        self.contact_phone = is_phone_number?(contact_phone)
+        self.contact_phone=(contact_phone)
         @duty_list = duty_list 
-        self.main_duty = ""
+        @main_duty = 0
     end
 
     def to_s
-        "This is departnament \"#{name}\" \nContact phone: #{contact_phone} \n#{show_all_dutyes}\n#{main_duty_show}"
+        "This is departnament \"#{name}\" \nContact phone: #{contact_phone} \n#{show_all_dutyes}\n#{main_duty}"
 	end
 
     def add_duty(duty)
         @duty_list.push(duty)
+        main_duty = @duty_list.size - 1
     end
 
-    def delete_duty(duty)
-        @duty_list.delete_at(@duty_list.index(duty))
+    def delete_duty
+        @duty_list.delete_at(@main_duty)
+        main_duty -= 1
     end
 
-    def show_all_dutyes
-        if @duty_list.empty?
-            "Dutyes in this department are not set"
-        else
-            "Dutyes of this department are next: #{@duty_list.join(", ")}"
-        end
+    def all_dutyes
+        @duty_list.join(" /")
     end
 
-    def set_main_duty(index)
-        puts show_all_dutyes
-        main_duty = duty_list[index]
+    def set_main_duty(duty)
+        @duty_list[@main_duty] = duty
     end
 
-    def main_duty_show
-        if main_duty.empty?
-            "Main duty of this department are not set"
-        else 
-            "Main duty of this department are #{main_duty}"
-        end
-    end
-
-    def is_phone_number?(my_phone)
-       if my_phone.match?(/[+][7][0-9]{10}/)
-           my_phone
-       else 
-           "Wrong number!"
-       end
+    def main_duty
+        @duty_list[@main_duty]
     end
 end
 
@@ -70,4 +64,9 @@ def read_from_txt(path)
     dept_list
 end
 
-
+def write_to_txt(dept_list, path)
+    file = File.open(path, "w")
+    dept_list.each do |i| 
+        file.print("#{i.name}\n#{i.contact_phone}\n#{i.all_dutyes}\n///\n") 
+    end
+end
