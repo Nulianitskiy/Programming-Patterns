@@ -5,9 +5,27 @@ class Department_list
     @dept_list = Array.new
 
     def initialize(dept_list = nil)
-        @dept_list = dept_list 
+        @dept_list = dept_list
+        @note = 0 
     end
 
+    def add_note(dept)
+        @dept_list.push(dept)
+        note = @dept_list.size - 1
+    end
+
+    def delete_note
+        @dept_list.delete_at(@note)
+        note -= 1
+    end
+
+    def change_note(note)
+        @dept_list[@note] = note
+    end
+
+    def get_note
+        @dept_list[@note]
+    end
 
 
     # Read/Write

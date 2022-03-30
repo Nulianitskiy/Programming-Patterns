@@ -1,5 +1,6 @@
 current_path = File.dirname(__FILE__)
 require "#{current_path}/Department.rb"
+require "#{current_path}/Department_list.rb"
 
 dept1 = Department.new("NumberOne", "+71112345678", ["RABotat`","Slujit`","Prismikatsa"])
 dept2 = Department.new("BoomBigaBoom", "+70189091456", ["1", "2", "3"])
