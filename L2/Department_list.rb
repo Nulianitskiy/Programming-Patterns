@@ -29,29 +29,20 @@ class Department_list
 
 
     # Read/Write
-    def read_from_txt(path)
-        my_data = IO.read path
-        dept_list = Array.new
-        sub_data = Array.new
-        n = 0
-        my_data.split("\n").each do |i| 
-            if i != "///"
-                sub_data[n] = i 
-                n+=1
-            else 
-                n = 0
-                dept_list.push(Department.new(sub_data.shift, sub_data.shift, sub_data.shift.split("/")))
-            end
+    def Department_list.read_from_txt(path)
+        file = File.new(file, "r")
+        list_departments = [] # Список отделов
+        for line in file.readlines
+            list_departments.push(Department.read_line(line))
         end
-        dept_list
+        file.close()
+        new(list_departments)
     end
     
     def write_to_txt(dept_list, path)
-        file = File.open(path, "w")
-        dept_list.each do |i| 
-            file.print("#{i.name}\n#{i.contact_phone}\n#{i.all_dutyes}\n///\n") 
+        File.open(path, "w") do |f|
+            @dept_list.each{|x| f.puts("#{x.name};#{x.contact_phone};#{x.all_dutyes}")}
         end
-        file.close
     end
     
     def write_to_yaml(dept_list, path)
