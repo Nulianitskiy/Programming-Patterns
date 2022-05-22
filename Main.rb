@@ -12,10 +12,8 @@ dept_list = [dept1, dept2]
 #puts dept1.show_all_dutyes
 #puts dept2.show_all_dutyes
 
-puts read_from_txt("C:\\Users\\Captain\\Ruby\\ruby_dungeon\\L2\\Department.txt")
+#puts Department_list.read_from_txt("C:\\Users\\Captain\\Ruby\\ruby_dungeon\\L2\\Department.txt")
 
-write_to_txt(read_from_txt("C:\\Users\\Captain\\Ruby\\ruby_dungeon\\L2\\Department.txt"))
+#write_to_txt(read_from_txt("C:\\Users\\Captain\\Ruby\\ruby_dungeon\\L2\\Department.txt"))
 
-#write_to_yaml(dept_list, "myDept.yml")
-
-#puts read_from_yaml("myDept.yml")
+d_list=Department_list.read_from_yaml("departments2.yaml")

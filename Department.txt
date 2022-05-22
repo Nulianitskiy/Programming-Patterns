@@ -1,0 +1,14 @@
+DepartmentName|+79999999999
+об1:Stradat` 
+об2:Rabotat` 
+об3:Vkalivat`
+_
+RedDepartment|+71346745648
+об1:Crasit` v crasniy 
+об2:Vibirat` tsvet
+_
+Pepe Inc|+75459875339
+об1:Kek 
+об2:Rofl 
+об3:lol 
+об4:aboba
